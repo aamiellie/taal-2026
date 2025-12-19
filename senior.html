@@ -76,7 +76,7 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:70px 50px;
+padding: 0 30px;
   background:rgba(5,8,40,0.25);
   backdrop-filter:blur(18px);
   border-bottom:1px solid rgba(255,255,255,0.08);
@@ -235,6 +235,46 @@ footer{
   padding:25px;
   color:#9ca3af;
 }
+
+  @media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    height: 70px;
+    padding: 0 12px;
+    display: grid;
+    grid-template-columns: auto 1fr auto; /* left | center | right */
+    align-items: center;
+  }
+
+  /* LEFT LOGO */
+  .nav-left img {
+    height: 40px;
+    width: auto;
+  }
+
+  /* CENTER LOGO */
+  .nav-center {
+    position: static;   /* ⬅ remove absolute */
+    transform: none;
+    text-align: center;
+  }
+
+  .nav-center img {
+    height: 50px;
+    width: auto;
+  }
+
+  /* RIGHT BUTTON */
+  .nav-right a {
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    margin: 0;          /* ⬅ remove top margin */
+    border-radius: 10px;
+  }
+
+}
+
 </style>
 </head>
 
@@ -465,3 +505,4 @@ function filterEvents(type, btn) {
 
 </body>
 </html>
+
