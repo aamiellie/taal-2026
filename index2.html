@@ -1327,6 +1327,25 @@ body {
   }
 }
 
+  /* FORCE Contact Us LEFT aligned on mobile */
+@media (max-width: 768px) {
+
+  section#contact.footer-left {
+    width: 100%;
+    max-width: none;
+    text-align: left !important;
+    align-self: flex-start !important;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  section#contact.footer-left h2,
+  section#contact.footer-left p {
+    text-align: left !important;
+  }
+}
+  
+
 
 
 </style>
@@ -1433,7 +1452,7 @@ body {
 
   <section id="contact" class="footer-left">
     <h2>Contact Us</h2>
-<p style="text-align: left; line-height: 1.6; margin: 0;">
+<p>
   📧 <strong>Taal</strong><br><br>
 
   📞 <strong>Dr. Naveena J. Narithookkil</strong><br>
