@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOICE | TAAL 2026</title>
+
+<style>
+/* ================= YOUR COLORS ONLY ================= */
+:root{
+  --bg:#02071c;
+  --card:#0b1028;
+  --card-soft:#11183a;
+  --blue:#0cacc5;
+  --wine:#460121;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --border:rgba(255,255,255,0.12);
+}
+
+/* ================= GLOBAL ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+}
+
+/* ================= NAVBAR (UNCHANGED STRUCTURE) ================= */
+.navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+height: auto;
+min-height: 120px; /* desktop only */
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 28px;
+  background:rgba(2,7,28,0.55);
+  backdrop-filter:blur(14px);
+  z-index:50;
+}
+
+.nav-left img{height:120px;}
+.nav-center{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+}
+.nav-center img{height:120px;}
+
+/*.nav-right a{
+  padding:8px 22px;
+  background:#fff;
+  color:#000;
+  border-radius:10px;
+  font-weight:600;
+  text-decoration:none;
+}*/
+
+/* HOME button */
+.nav-right a {
+  display: inline-block;
+
+  padding: 12px 34px;              /* balanced size */
+  margin-right: 32px;              /* pull it away from right edge */
+  margin-top: 20px;
+
+background: linear-gradient(
+    135deg,
+    #ffffff,
+    #ffffff
+  );
+  color: #040303;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.4px;
+
+  border-radius: 14px;
+  border: 1px solid #ffffff(0, 212, 255, 0.45);
+
+  box-shadow:
+    0 0 12px rgba(0, 0, 0, 0.55),
+    0 0 28px rgba(0, 0, 0, 0.45);
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  transition: all 0.35s ease;
+}
+.nav-right a:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 18px rgba(0, 212, 255, 0.8),
+    0 0 40px rgba(37, 99, 255, 0.7);
+}
+
+/* ================= LAYOUT ================= */
+.wrapper{
+  max-width:1200px;
+  margin:auto;
+  padding:120px 20px 80px;
+}
+
+/* separators (same style as reference) */
+.separator{
+  height:2px;
+  background:linear-gradient(90deg,var(--blue),var(--wine));
+  margin:20px 0 28px;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes popup{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* ================= GRID ================= */
+.grid{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:28px;
+}
+
+/* ================= LEFT PANEL ================= */
+.main{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:28px;
+  animation:popup .9s ease forwards;
+}
+
+.tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:.75rem;
+  background:rgba(255,255,255,0.05);
+  border:1px solid var(--border);
+  padding:6px 14px;
+  border-radius:20px;
+  margin-bottom:14px;
+}
+
+.title{
+  font-size:2.4rem;
+  letter-spacing:1px;
+  color:#fff;
+}
+
+.subtitle{
+  color:var(--muted);
+  font-size:.9rem;
+  margin-top:6px;
+}
+
+/* META */
+.meta{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin:26px 0;
+}
+
+.meta div{
+  background:var(--card-soft);
+  border:1px solid var(--border);
+  padding:14px;
+  border-radius:12px;
+  font-size:.85rem;
+}
+
+/* ACTION BUTTONS */
+.actions{
+  display:flex;
+  gap:16px;
+}
+
+.btn{
+  padding:10px 26px;
+  border-radius:10px;
+  font-weight:600;
+  font-size:.85rem;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.btn-primary{
+  background:var(--blue);
+  color:#001;
+}
+.btn-primary:hover{
+  background:#12cfe8;
+}
+
+.btn-outline{
+  border:3px solid var(--wine);
+  color:#fff;
+}
+.btn-outline:hover{
+  background:var(--wine);
+}
+
+/* SECTIONS */
+.section{
+  margin-top:26px;
+}
+
+.section h3{
+  font-size:1rem;
+  margin-bottom:10px;
+  color:var(--blue);
+}
+
+.section p,
+.section li{
+  font-size:.9rem;
+  line-height:1.7;
+  color:#d1d5db;
+}
+
+.section ul{
+  padding-left:18px;
+}
+
+/* ================= RIGHT PANEL ================= */
+.side{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
+
+.side-box{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px;
+  animation:popup 1.1s ease forwards;
+}
+
+.side-box h4{
+  font-size:.95rem;
+  margin-bottom:8px;
+  color:var(--blue);
+}
+
+.status{
+  display:inline-block;
+  padding:6px 12px;
+  background:rgba(12,172,197,0.15);
+  color:var(--blue);
+  font-size:.75rem;
+  border-radius:14px;
+  margin-bottom:10px;
+}
+
+/* PRIZE POOL */
+.prize{
+  display:flex;
+  justify-content:space-between;
+  padding:12px;
+  background:rgba(255,255,255,0.04);
+  border-radius:12px;
+  font-size:.9rem;
+  margin-top:10px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr}
+  .meta{grid-template-columns:repeat(2,1fr)}
+}
+
+  @media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    height: 70px;
+    padding: 0 12px;
+    display: grid;
+    grid-template-columns: auto 1fr auto; /* left | center | right */
+    align-items: center;
+  }
+
+  /* LEFT LOGO */
+  .nav-left img {
+    height: 40px;
+    width: auto;
+  }
+
+  /* CENTER LOGO */
+  .nav-center {
+    position: static;     /* ⬅ remove absolute */
+    transform: none;
+    text-align: center;
+  }
+
+  .nav-center img {
+    height: 48px;
+    width: auto;
+  }
+
+  /* RIGHT BUTTON */
+  .nav-right a {
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    margin: 0;            /* ⬅ remove top margin */
+    border-radius: 10px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-left">
+    <img src="../newb.svg" alt="BCM Logo">
+  </div>
+  <div class="nav-center">
+    <img src="../carnival.png" alt="Carnival Logo">
+  </div>
+  <div class="nav-right">
+    <a href="../index2.html">HOME</a>
+  </div>
+</nav>
+
+<div class="wrapper">
+
+  <div class="separator"></div>
+
+  <div class="grid">
+
+ <!-- LEFT -->
+<div class="main">
+  <div class="tag">DIGITAL • Web-Based • Solo</div>
+
+  <h1 class="title">Dig N Hunt</h1>
+  <p class="subtitle">Digital Treasure Hunt | Day 1</p>
+
+  <div class="meta">
+    <div>📅 Day 1</div>
+    <div>⏰ 1:30 PM</div>
+    <div>📍 Computer Lab</div>
+    <div>👤 Individual</div>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="section">
+    <h3>About This Event</h3>
+    <p>
+      Dig N Hunt is a web-based digital treasure hunt that tests participants’ 
+      observation skills, logical thinking, and problem-solving abilities. 
+      The event is conducted as a common category for both Junior and Senior participants.
+      No advanced coding knowledge is required.
+    </p>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="section">
+    <h3>Guidelines</h3>
+    <ul>
+      <li>The competition is conducted in common categories for Juniors and Seniors</li>
+      <li>This is a solo event</li>
+      <li>All required systems and websites will be provided by the organizers</li>
+      <li>Participants must use only the system allotted to them</li>
+      <li>The event is entirely web-based and requires observation and logical thinking</li>
+      <li>No advanced coding knowledge is required</li>
+      <li>Sharing clues, answers, or links is strictly prohibited</li>
+      <li>Use of external tools, scripts, or automation is not allowed</li>
+      <li>Refreshing pages or force-navigating links to skip levels is prohibited</li>
+      <li>Winners will be decided based on completion and time taken</li>
+      <li>Any unfair practice may lead to disqualification</li>
+      <li>The decision of the judges and organizers will be final</li>
+    </ul>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="section">
+    <h3>Prize Pool</h3>
+    <p>
+      🥇 First Prize: <strong>₹3,000</strong><br>
+      🥈 Second Prize: <strong>₹2,000</strong><br>
+      <em>Prizes are common for all events and applicable to both Junior & Senior categories.</em>
+    </p>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="section">
+    <h3>General Instructions</h3>
+    <ul>
+      <li>Participants must carry a valid College/School ID card</li>
+      <li>Participants without a valid ID will not be permitted to attend the event</li>
+    </ul>
+  </div>
+</div>
+
+<!-- RIGHT SIDE -->
+<div class="side">
+  <div class="side-box">
+    <h4>Venue</h4>
+    <p class="subtitle">Computer Lab</p>
+  </div>
+
+  <div class="side-box">
+    <h4>Category</h4>
+    <p class="subtitle">Junior & Senior</p>
+  </div>
+
+  <div class="side-box">
+    <h4>Event Type</h4>
+    <p class="subtitle">Digital Treasure Hunt</p>
+  </div>
+
+  <div class="side-box">
+    <h4>Prize Pool</h4>
+    <div class="prize"><span>1st Prize</span><strong>₹3,000</strong></div>
+    <div class="prize"><span>2nd Prize</span><strong>₹2,000</strong></div>
+  </div>
+</div>
+
+</body>
+</html>
